@@ -3,37 +3,20 @@ pipeline {
     stages {
         stage('Clone Git') {
             steps {
-                echo "This is the cloning stage"
+                git 'https://github.com/BThangaraju/Jenkins.git'
             }
         }
         stage('Build Code') {
             steps {
-                echo "This is the building stage"
+                sh "chmod u+x Prog1.py"
+                sh "./Prog1.py"
             }
         }
      stage('Test Code') {
-            steps {                
-            echo "This is the testing stage"
+            steps {
+                sh "chmod u+x Tes.py"
+                sh "./Test.py"
             }
         }
-        
-     stage('Deliver Code') {
-            steps {                
-            echo "This is the deliver stage"
-            }
-        }
-        
-     stage('Deployment Code') {
-            steps {                
-            echo "This is the deployment stage"
-            }
-        }
-        
-     stage('Monitoring Code') {
-            steps {                
-            echo "This is the monitoring stage"
-            }
-        }
-     
     } 
 }
